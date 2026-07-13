@@ -27,7 +27,7 @@ def adicionar():
         request.form["titulo"],
         request.form["descricao"],
         request.form["responsavel"],
-        request.form["prioridade"]
+        request.form.get("prioridade", "Média")
     )
 
     return redirect("/")
@@ -49,7 +49,7 @@ def atualizar(id):
         request.form["titulo"],
         request.form["descricao"],
         request.form["responsavel"],
-        request.form["prioridade"]
+        request.form.get("prioridade", "Média")
     )
 
     return redirect("/")
