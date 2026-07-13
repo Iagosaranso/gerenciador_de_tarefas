@@ -19,15 +19,15 @@ class TestApp(unittest.TestCase):
 
     def test_cadastro(self):
         response = self.client.post(
-            "/adicionar",
-            data={
-                "titulo": "Teste",
-                "descricao": "Teste Automatizado",
-                "responsavel": "Iago"
-            },
-            follow_redirects=True
-        )
-
+    "/adicionar",
+    data={
+        "titulo": "Teste",
+        "descricao": "Teste Automatizado",
+        "responsavel": "Iago",
+        "prioridade": "Média"
+    },
+    follow_redirects=True
+)
         self.assertEqual(response.status_code, 200)
 
 
