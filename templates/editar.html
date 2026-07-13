@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Tarefa</title>
+</head>
+
+<body>
+
+<h1>Editar Tarefa</h1>
+
+<form action="/atualizar/{{ tarefa['id'] }}" method="POST">
+
+    <p>
+        <label>Título</label><br>
+        <input
+            type="text"
+            name="titulo"
+            value="{{ tarefa['titulo'] }}"
+            required>
+    </p>
+
+    <p>
+        <label>Descrição</label><br>
+        <textarea
+            name="descricao"
+            rows="5"
+            cols="50">{{ tarefa['descricao'] }}</textarea>
+    </p>
+
+    <p>
+        <label>Responsável</label><br>
+        <input
+            type="text"
+            name="responsavel"
+            value="{{ tarefa['responsavel'] }}"
+            required>
+    </p>
+
+    <p>
+        <label>Prioridade</label><br>
+
+        <select name="prioridade">
+
+            <option value="Baixa"
+                {% if tarefa["prioridade"] == "Baixa" %}selected{% endif %}>
+                Baixa
+            </option>
+
+            <option value="Média"
+                {% if tarefa["prioridade"] == "Média" %}selected{% endif %}>
+                Média
+            </option>
+
+            <option value="Alta"
+                {% if tarefa["prioridade"] == "Alta" %}selected{% endif %}>
+                Alta
+            </option>
+
+        </select>
+
+    </p>
+
+    <button type="submit">
+        Salvar Alterações
+    </button>
+
+</form>
+
+<br>
+
+<a href="/">⬅ Voltar</a>
+
+</body>
+
+</html>
